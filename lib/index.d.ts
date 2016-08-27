@@ -8,6 +8,7 @@ export declare function isEmpty<T>(x: Option<T>): x is void;
 export declare function isDefined<T>(x: Option<T>): x is T;
 export declare type Lazy<A> = A | (() => A);
 export declare function toOptional<T>(x: Option<T>): Optional<T>;
+export declare function getOrElse<T>(o: Option<T>, defaultValue: T | (() => T)): T;
 export declare abstract class Optional<A> {
     abstract toString(): string;
     abstract orElse(defaultValue: Lazy<A>): A;

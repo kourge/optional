@@ -28,6 +28,14 @@ export function toOptional<T>(x: Option<T>): Optional<T> {
   return isEmpty(x) ? None : new Some(x);
 }
 
+export function getOrElse<T>(o: Option<T>, defaultValue: T | (() => T)): T {
+  if (isDefined(o)) {
+    return o;
+  } else {
+    return defaultValue instanceof Function ? defaultValue() : defaultValue;
+  }
+}
+
 export abstract class Optional<A> {
   abstract toString(): string;
   abstract orElse(defaultValue: Lazy<A>): A;
