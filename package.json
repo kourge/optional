@@ -13,7 +13,8 @@
     "type": "git",
     "url": "git+https://github.com/UrbanDoor/optional.git"
   },
-  "author": "kourge",
+  "author": "Urbandoor",
+  "license": "MIT",
   "private": true,
   "bugs": {
     "url": "https://github.com/UrbanDoor/optional/issues"
