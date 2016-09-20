@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/UrbanDoor/optional#readme",
   "devDependencies": {
-    "ts-npm-lint": "^0.1.0",
-    "typescript": "^1.8.9"
+    "typescript": "2.0.2"
   }
 }
