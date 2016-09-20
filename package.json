@@ -6,8 +6,8 @@
   "typings": "lib/index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "ts-npm-lint": "ts-npm-lint"
+    "lint": "globstar --node --nodir -- tslint './src/**/*.ts'",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/UrbanDoor/optional#readme",
   "devDependencies": {
+    "globstar": "^1.0.0",
+    "tslint": "^3.15.1",
     "typescript": "2.0.2"
   }
 }
