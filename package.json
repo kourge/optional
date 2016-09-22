@@ -1,6 +1,6 @@
 {
   "name": "optional",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Provides the Option<T> type for null checks",
   "main": "lib/index.js",
   "typings": "lib/index",
