@@ -7,6 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "globstar --node --nodir -- tslint './src/**/*.ts'",
+    "clean": "rm -rf lib",
+    "prepublish": "tsc",
     "build": "tsc"
   },
   "repository": {
@@ -15,7 +17,6 @@
   },
   "author": "Urbandoor",
   "license": "MIT",
-  "private": true,
   "bugs": {
     "url": "https://github.com/UrbanDoor/optional/issues"
   },
