@@ -11,6 +11,12 @@ interpretations:
 
 This library is designed to handle the broadest interpretation: the last one.
 
+## Installation
+
+This library is [published on npm as `@urbandoor/optional`](
+https://www.npmjs.com/package/@urbandoor/optional
+). Simply run `npm install --save @urbandoor/optional`.
+
 ## API
 
 The most useful part of the API lies in the exported types. A few utility functions
@@ -36,22 +42,26 @@ have been superseded by the ones built-in to the compiler.
 
 ## Partial deprecation
 
-When handling an `Option<T>` where `T` is not `boolean`, we actively discourage
-using `isEmpty`, `isDefined`, and `getOrElse`. All three of these things have
-analogous native JavaScript constructs that are considered more idiomatic:
+When handling an `Option<T>` where `T` is not `boolean` or `number`, we actively
+discourage using `isEmpty`, `isDefined`, and `getOrElse`. All three of these things
+have analogous native JavaScript constructs that are considered more idiomatic:
 
 - `isEmpty(x)` can be written as `!x` in any boolean expression or context.
 - `isDefined(x)` can be written as `x` or `!!x` in any boolean expression or context.
 - `getOrElse(x, () => v)` can be written as `x || v` in any expression.
 
 TypeScript, since 2.0, has the native ability to perform type narrowing for the
-idiomatic constructs to work in a type-safe manner.
+idiomatic constructs to work in a type-safe manner. However, there are two outliers:
 
-However, when dealing with `Option<boolean>`, one is presented with four
-possibilities: `true`, `false`, `null`, `undefined`. If all three falsy values are
-considered equivalent, then the idiomatic constructs remain safe to use, but if
-`false` is considered distinct from `null` or `undefined`, then the situation calls
-for using these utility functions.
+- When dealing with `Option<boolean>`, there are three falsy possibilities:
+  `false`, `null`, and `undefined`. If `false` is considered distinct from `null` or
+  `undefined`, standard JavaScript coercion would conflate the two.
+- When dealing with `Option<number>`, there are three falsy possibilities: `0`,
+  `null`, and `undefined`. If `0` is considered distinct from `null` or `undefined`,
+  coercion would conflate the two.
+
+In those two specific cases, it is actually desirable to use the utility functions
+in `optional`.
 
 ## Rationale
 
